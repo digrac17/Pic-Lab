@@ -1,3 +1,5 @@
+ 
+
 
 import java.awt.*;
 import java.awt.event.*;
@@ -806,6 +808,7 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
         smallP.write("Smaller Picture");
         pix.explore();
         SimplePicture p = new Picture();
+       
     }
 
 }

@@ -1,3 +1,5 @@
+ 
+
 /**
  * This class contains class (static) methods
  * that will help you test the Picture class 
@@ -26,6 +28,12 @@ public class PictureTester
     caterpillar.explore();
   }
   
+  public static void testMirrorHorizontal(){
+      Picture caterpillar = new Picture("caterpillar.jpg");
+      caterpillar.explore();
+      caterpillar.mirrorDiagonal();
+      caterpillar.explore();
+    }
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {

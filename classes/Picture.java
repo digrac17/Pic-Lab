@@ -1,3 +1,4 @@
+
 import java.awt.*;
 import java.awt.font.*;
 import java.awt.geom.*;
@@ -102,43 +103,43 @@ public class Picture extends SimplePicture
         zeroGreen();
         zeroRed();
     }
-    
+
     public void setBlue(int color)
     {
-            Pixel[][] pixels = this.getPixels2D();
-            for (Pixel[] rowArray : pixels)
+        Pixel[][] pixels = this.getPixels2D();
+        for (Pixel[] rowArray : pixels)
+        {
+            for (Pixel pixelObj : rowArray)
             {
-                for (Pixel pixelObj : rowArray)
-                {
-                    pixelObj.setBlue(color);
-                }
+                pixelObj.setBlue(color);
             }
+        }
     }
 
     public void setRed(int color)
     {
-            Pixel[][] pixels = this.getPixels2D();
-            for (Pixel[] rowArray : pixels)
+        Pixel[][] pixels = this.getPixels2D();
+        for (Pixel[] rowArray : pixels)
+        {
+            for (Pixel pixelObj : rowArray)
             {
-                for (Pixel pixelObj : rowArray)
-                {
-                    pixelObj.setRed(color);
-                }
+                pixelObj.setRed(color);
             }
         }
-    
+    }
+
     public void setGreen(int color)
     {
-            Pixel[][] pixels = this.getPixels2D();
-            for (Pixel[] rowArray : pixels)
+        Pixel[][] pixels = this.getPixels2D();
+        for (Pixel[] rowArray : pixels)
+        {
+            for (Pixel pixelObj : rowArray)
             {
-                for (Pixel pixelObj : rowArray)
-                {
-                    pixelObj.setGreen(color);
-                }
+                pixelObj.setGreen(color);
             }
+        }
     }
-    
+
     public void zeroGreen()
     {
         Pixel[][] pixels = this.getPixels2D();
@@ -238,6 +239,44 @@ public class Picture extends SimplePicture
         }   
     }
 
+    public void mirrorVertical2(){
+        Pixel[][] arr = this.getPixels2D();
+        int middle = arr[0].length;
+        for(int i = 0; i < arr.length; i++){
+            for(int j = 0; j < middle; j++){
+                arr[i][arr[i].length -j -1].setColor(arr[i][j].getColor());
+            }
+        }
+    }
+
+    public void mirrorHorizontal2(){
+        Pixel[][] arr = this.getPixels2D();
+        int middle = arr.length/2;
+        for(int i = 0; i < middle; i++){
+            for(int j = 0; j < arr[0].length; j++){
+                arr[arr.length - i -1][j].setColor(arr[i][j].getColor());
+            }
+        }
+    }
+
+    public void mirrorHorizontalBottom(){
+        Pixel[][] arr = this.getPixels2D();
+        int middle = arr.length/2;
+        for(int i = 0; i < middle; i++){
+            for(int j = 0; j < arr[0].length; j++){
+                arr[i][j].setColor(arr[arr.length - i -1][j].getColor());
+            }
+        }
+    }
+    
+    public void mirrorDiagonal(){
+        Pixel[][] arr = this.getPixels2D();
+        for(int i = 0; i < arr.length; i++){
+            for(int j = 0; j < arr.length - i; j++){
+                arr[i][arr[0].length - j - 1 - (arr[0].length - arr.length)].setColor(arr[arr.length - j - 1][i].getColor());
+            }
+        }
+    }
     /** Method to create a collage of several pictures */
     public void createCollage()
     {
